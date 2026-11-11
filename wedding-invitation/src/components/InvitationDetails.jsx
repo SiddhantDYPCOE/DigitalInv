@@ -1,39 +1,14 @@
 import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import invitationData from "../config/invitationData";
 import "./InvitationDetails.css";
-
-const ASSET_BASE =
-  "https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images";
 
 const InvitationDetails = () => {
   const sectionRef = useRef(null);
   const isVisible = useInView(sectionRef, { once: true, amount: 0.15 });
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [70, -70]);
 
   return (
     <section ref={sectionRef} className="invitation-details" id="invitation">
-      <motion.picture
-        className="invitation-details__background"
-        style={{ y: backgroundY }}
-        aria-hidden="true"
-      >
-        <source
-          media="(min-width: 1024px)"
-          srcSet={`${ASSET_BASE}/backgrounds/garden-bridge-desktop.webp`}
-        />
-        <img
-          src={`${ASSET_BASE}/backgrounds/garden-bridge-mobile.webp`}
-          alt=""
-          draggable="false"
-        />
-      </motion.picture>
-      <div className="invitation-details__veil" aria-hidden="true" />
-
       <motion.div
         initial={{ opacity: 0, y: 70, scale: 0.97 }}
         animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
@@ -50,10 +25,10 @@ const InvitationDetails = () => {
         >
           <source
             media="(min-width: 1024px)"
-            srcSet={`${ASSET_BASE}/decorations/ganpati-icon-desktop.webp`}
+            srcSet="https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/decorations/ganpati-icon-desktop.webp"
           />
           <img
-            src={`${ASSET_BASE}/decorations/ganpati-icon-mobile.webp`}
+            src="https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/decorations/ganpati-icon-mobile.webp"
             alt="Ganpati"
             draggable="false"
           />
