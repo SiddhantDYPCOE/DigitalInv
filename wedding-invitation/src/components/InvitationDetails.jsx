@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import invitationData from "../config/invitationData";
 import "./InvitationDetails.css";
 
@@ -9,10 +9,29 @@ const ASSET_BASE =
 const InvitationDetails = () => {
   const sectionRef = useRef(null);
   const isVisible = useInView(sectionRef, { once: true, amount: 0.15 });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [70, -70]);
 
   return (
     <section ref={sectionRef} className="invitation-details" id="invitation">
-      <div className="invitation-details__background" aria-hidden="true" />
+      <motion.picture
+        className="invitation-details__background"
+        style={{ y: backgroundY }}
+        aria-hidden="true"
+      >
+        <source
+          media="(min-width: 1024px)"
+          srcSet={`${ASSET_BASE}/backgrounds/garden-bridge-desktop.webp`}
+        />
+        <img
+          src={`${ASSET_BASE}/backgrounds/garden-bridge-mobile.webp`}
+          alt=""
+          draggable="false"
+        />
+      </motion.picture>
       <div className="invitation-details__veil" aria-hidden="true" />
 
       <motion.div
@@ -47,11 +66,9 @@ const InvitationDetails = () => {
         </p>
 
         <div className="invitation-details__divider" aria-hidden="true" />
-
         <p className="invitation-details__family">
           {invitationData.family.brideFamily}
         </p>
-
         <p className="invitation-details__intro">
           With joy and the blessings of our elders, we invite you to celebrate
           the wedding of
@@ -66,7 +83,7 @@ const InvitationDetails = () => {
           {invitationData.couple.bride}
         </motion.h2>
 
-        <p className="invitation-details__ampersand">&</p>
+        <p className="invitation-details__ampersand">&amp;</p>
 
         <motion.h2
           initial={{ opacity: 0, y: 22 }}
@@ -81,17 +98,13 @@ const InvitationDetails = () => {
         <p className="invitation-details__family">
           {invitationData.family.groomFamily}
         </p>
-
         <div className="invitation-details__divider invitation-details__divider--bottom" />
-
         <p className="invitation-details__closing">
           Together with our families, we welcome you
         </p>
       </motion.div>
 
-      <div className="invitation-details__flourish" aria-hidden="true">
-        ❧
-      </div>
+      <div className="invitation-details__flourish" aria-hidden="true">❧</div>
     </section>
   );
 };
