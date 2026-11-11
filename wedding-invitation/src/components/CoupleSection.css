@@ -1,102 +1,83 @@
-
 .couple-section {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  min-height: 850px;
-  padding: 120px 24px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: #f4e4c7;
+  overflow: hidden;
+  padding: 20px 24px clamp(105px, 11vw, 155px);
+  background: #f1dfbd;
   color: #68472b;
 }
-
-/* Background artwork */
 
 .couple-section__background {
   position: absolute;
   inset: 0;
   z-index: -2;
-  overflow: hidden;
+  background-image: url("https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/backgrounds/couple-section-desktop.webp");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
 }
-
-.couple-section__background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Mandala decorations */
-
-.couple-section__mandala {
-  position: absolute;
-  z-index: -1;
-  width: clamp(180px, 27vw, 390px);
-  height: auto;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.couple-section__mandala--left {
-  left: -7%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.couple-section__mandala--right {
-  right: -7%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Main content */
 
 .couple-section__content {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 850px;
-  margin: auto;
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
-/* Heading */
+.couple-section__mandala {
+  position: absolute;
+  z-index: 0;
+  top: 58%;
+  width: clamp(170px, 25vw, 360px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.couple-section__mandala--left {
+  left: -8%;
+}
+
+.couple-section__mandala--right {
+  right: -8%;
+}
 
 .couple-section__heading {
-  margin-bottom: 55px;
+  margin: 0 0 45px;
   color: #704b2b;
 }
 
 .couple-section__heading span {
   display: block;
-  font-family: "Jost", sans-serif;
-  font-size: 17px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
 }
 
 .couple-section__heading h2 {
   margin: 10px 0 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(43px, 7vw, 76px);
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 6.5vw, 72px);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.12;
 }
-
-/* Message card */
 
 .couple-section__card {
   position: relative;
   width: min(100%, 620px);
-  margin: auto;
-  padding: 55px 45px;
-  background: rgba(255, 249, 233, 0.88);
-  border: 1px solid rgba(158, 116, 60, 0.5);
+  margin: 0 auto;
+  padding: clamp(38px, 5vw, 55px) clamp(22px, 5vw, 48px);
+  border: 1px solid rgba(158, 116, 60, 0.52);
   outline: 1px solid rgba(158, 116, 60, 0.25);
   outline-offset: 8px;
+  background: rgba(255, 249, 233, 0.88);
   box-shadow: 0 20px 55px rgba(87, 55, 27, 0.13);
   backdrop-filter: blur(5px);
 }
@@ -107,21 +88,22 @@
 }
 
 .couple-section__names {
-  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 18px 0;
   color: #71492b;
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(38px, 6vw, 58px);
+  font-family: var(--font-decorative);
+  font-size: clamp(40px, 6vw, 60px);
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .couple-section__names span {
   margin: 3px 0;
   color: #b58a4c;
-  font-family: "Fraunces", serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: 23px;
   font-style: italic;
 }
 
@@ -130,7 +112,7 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin: 25px 0;
+  margin: 24px 0;
   color: #b58a4c;
   font-size: 20px;
 }
@@ -145,40 +127,38 @@
   max-width: 470px;
   margin: 0 auto;
   color: #795b3d;
-  font-family: "Jost", sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 2;
 }
 
-/* Responsive */
+@media (max-width: 1023px) {
+  .couple-section__background {
+    background-image: url("https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/backgrounds/couple-section-mobile.webp");
+  }
+}
 
 @media (max-width: 768px) {
   .couple-section {
-    min-height: 720px;
-    padding: 100px 22px;
+    padding: 12px 20px 100px;
   }
 
   .couple-section__mandala {
-    width: 210px;
+    top: 62%;
+    width: 205px;
     opacity: 0.35;
   }
 
   .couple-section__mandala--left {
-    left: -105px;
-    top: 48%;
+    left: -112px;
   }
 
   .couple-section__mandala--right {
-    right: -105px;
-    top: 48%;
+    right: -112px;
   }
 
   .couple-section__heading {
-    margin-bottom: 45px;
-  }
-
-  .couple-section__card {
-    padding: 42px 25px;
+    margin-bottom: 38px;
   }
 
   .couple-section__message {
@@ -187,12 +167,7 @@
 }
 
 @media (max-width: 420px) {
-  .couple-section {
-    min-height: 680px;
-    padding: 85px 20px;
-  }
-
   .couple-section__card {
-    padding: 35px 20px;
+    padding: 34px 20px;
   }
 }

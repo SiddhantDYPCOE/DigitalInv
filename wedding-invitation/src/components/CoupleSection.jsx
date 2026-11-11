@@ -1,6 +1,6 @@
-
 import { motion } from "framer-motion";
 import invitationData from "../config/invitationData";
+import WeddingDate from "./WeddingDate";
 import "./CoupleSection.css";
 
 const ASSET_BASE =
@@ -10,81 +10,69 @@ export default function CoupleSection() {
   const { bride, groom, introduction } = invitationData.couple;
 
   return (
-    <section className="couple-section">
-      {/* Background artwork */}
-      <picture className="couple-section__background">
-        <source
-          media="(min-width: 1024px)"
-          srcSet={`${ASSET_BASE}/backgrounds/couple-section-desktop.webp`}
-        />
-        <img
-          src={`${ASSET_BASE}/backgrounds/couple-section-mobile.webp`}
-          alt=""
-        />
-      </picture>
+    <section className="couple-section" id="couple">
+      <div className="couple-section__background" aria-hidden="true" />
 
-      {/* Left decorative mandala */}
       <motion.img
         className="couple-section__mandala couple-section__mandala--left"
         src={`${ASSET_BASE}/decorations/mandala.webp`}
         alt=""
-        initial={{ opacity: 0, rotate: -70, scale: 0.7 }}
-        whileInView={{ opacity: 0.75, rotate: 0, scale: 1 }}
+        draggable="false"
+        initial={{ opacity: 0, rotate: -55, scale: 0.8 }}
+        whileInView={{ opacity: 0.72, rotate: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.4, ease: "easeOut" }}
+        transition={{ duration: 1.35, ease: "easeOut" }}
       />
 
-      {/* Right decorative mandala */}
       <motion.img
         className="couple-section__mandala couple-section__mandala--right"
         src={`${ASSET_BASE}/decorations/mandala.webp`}
         alt=""
-        initial={{ opacity: 0, rotate: 70, scale: 0.7 }}
-        whileInView={{ opacity: 0.75, rotate: 0, scale: 1 }}
+        draggable="false"
+        initial={{ opacity: 0, rotate: 55, scale: 0.8 }}
+        whileInView={{ opacity: 0.72, rotate: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.4, ease: "easeOut" }}
+        transition={{ duration: 1.35, ease: "easeOut" }}
       />
 
       <div className="couple-section__content">
+        <WeddingDate />
+
         <motion.div
           className="couple-section__heading"
-          initial={{ opacity: 0, y: 45, scale: 0.92 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
+          initial={{ opacity: 0, y: 38 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.9 }}
         >
           <span>Meet the</span>
-          <h2>Bride & Groom</h2>
+          <h2>Bride &amp; Groom</h2>
         </motion.div>
 
         <motion.div
           className="couple-section__card"
-          initial={{ opacity: 0, y: 55 }}
+          initial={{ opacity: 0, y: 48 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.95, delay: 0.12 }}
         >
-          <div className="couple-section__card-ornament">✦</div>
+          <div className="couple-section__card-ornament" aria-hidden="true">✦</div>
 
           <p className="couple-section__names">
             {bride}
-            <span>&</span>
+            <span>&amp;</span>
             {groom}
           </p>
 
-          <div className="couple-section__divider">
+          <div className="couple-section__divider" aria-hidden="true">
             <span />
             ✧
             <span />
           </div>
 
-          <p className="couple-section__message">
-            {introduction}
-          </p>
+          <p className="couple-section__message">{introduction}</p>
 
-          <div className="couple-section__card-ornament">
-            ✦
-          </div>
+          <div className="couple-section__card-ornament" aria-hidden="true">✦</div>
         </motion.div>
       </div>
     </section>

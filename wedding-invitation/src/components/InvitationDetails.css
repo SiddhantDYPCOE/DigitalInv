@@ -1,0 +1,191 @@
+.invitation-details {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: max(100svh, 980px);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(100px, 10vw, 150px) 22px clamp(135px, 13vw, 190px);
+  background: #e8d7b9;
+}
+
+.invitation-details__background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/backgrounds/garden-bridge-desktop.webp");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  transform: translateZ(0);
+}
+
+.invitation-details__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 235, 213, 0.08) 0%,
+    rgba(247, 235, 213, 0.34) 46%,
+    rgba(247, 235, 213, 0.76) 100%
+  );
+  pointer-events: none;
+}
+
+.invitation-details__panel {
+  position: relative;
+  width: min(100%, 690px);
+  margin: 0 auto;
+  padding: clamp(42px, 6vw, 70px) clamp(24px, 6vw, 68px);
+  border: 1px solid rgba(169, 133, 93, 0.72);
+  background: rgba(248, 237, 219, 0.94);
+  box-shadow: 0 24px 75px rgba(74, 45, 27, 0.2);
+  text-align: center;
+}
+
+.invitation-details__inner-border {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(185, 154, 117, 0.48);
+  pointer-events: none;
+}
+
+.invitation-details__ganpati {
+  position: relative;
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 24px;
+}
+
+.invitation-details__ganpati img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.invitation-details__prayer {
+  position: relative;
+  margin: 0;
+  color: #825a3e;
+  font-family: "Fraunces", serif;
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 2;
+}
+
+.invitation-details__divider {
+  width: 76px;
+  height: 1px;
+  margin: 27px auto;
+  background: #b18b69;
+}
+
+.invitation-details__family {
+  margin: 0;
+  color: #795b46;
+  font-family: "Fraunces", serif;
+  font-size: clamp(13px, 1.8vw, 16px);
+  line-height: 1.9;
+}
+
+.invitation-details__intro {
+  max-width: 480px;
+  margin: 23px auto 0;
+  color: #8c6a50;
+  font-family: "Fraunces", serif;
+  font-size: clamp(15px, 2vw, 18px);
+  font-style: italic;
+  line-height: 1.9;
+}
+
+.invitation-details__name {
+  margin: 23px 0 0;
+  color: #633d2b;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 400;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.invitation-details__ampersand {
+  margin: 5px 0 -3px;
+  color: #ad815c;
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.invitation-details__family-label {
+  margin: 27px 0 8px;
+  color: #9b795d;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.invitation-details__divider--bottom {
+  margin-top: 27px;
+  margin-bottom: 20px;
+}
+
+.invitation-details__closing {
+  margin: 0;
+  color: #92735d;
+  font-family: "Fraunces", serif;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.invitation-details__flourish {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  color: rgba(155, 121, 93, 0.72);
+  font-family: "Fraunces", serif;
+  font-size: 52px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .invitation-details__background {
+    background-image: url("https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/backgrounds/garden-bridge-mobile.webp");
+  }
+}
+
+@media (max-width: 600px) {
+  .invitation-details {
+    min-height: 900px;
+    padding: 80px 16px 125px;
+  }
+
+  .invitation-details__panel {
+    padding: 42px 23px;
+  }
+
+  .invitation-details__ganpati {
+    width: 78px;
+    height: 78px;
+    margin-bottom: 20px;
+  }
+
+  .invitation-details__name {
+    font-size: clamp(43px, 12vw, 58px);
+  }
+
+  .invitation-details__flourish {
+    bottom: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-details__background {
+    transform: none;
+  }
+}

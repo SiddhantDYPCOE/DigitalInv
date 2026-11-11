@@ -1,16 +1,46 @@
-# React + Vite
+# Digital Wedding Invitation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, animated wedding invitation built with React, Vite, Tailwind CSS, Framer Motion, and CSS.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Create a production build with:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Customize the invitation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Edit **`src/config/invitationData.js`** to change:
+
+- Bride and groom names
+- Wedding date and display date
+- Family names
+- Celebration events, dates, times, descriptions, and locations
+- Wedding hashtag
+- Venue name, address, and Google Maps URL
+- Music source and enable/disable setting
+
+The opening envelope, hero names, invitation panel, scratch-to-reveal date hearts, couple introduction, timeline, venue, and countdown read from this configuration wherever applicable.
+
+## Visual assets
+
+The invitation uses the Siyaram-Raghukul artwork hosted by InviteUtsav. Image paths are referenced from the original asset host in the components and CSS. The assets are loaded responsively (desktop/mobile variants where provided).
+
+## Main sections
+
+1. Opening invitation
+2. Parallax hero
+3. Family invitation and Ganpati prayer
+4. Scratch-to-reveal wedding date and couple introduction
+5. Celebration timeline
+6. Wedding hashtag
+7. Venue and live countdown
+
+There is intentionally no logo placeholder and no RSVP section.

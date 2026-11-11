@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import invitationData from "../config/invitationData";
@@ -17,25 +16,19 @@ function ScratchHeart({ label, value, index }) {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
+    if (!ctx) return;
 
-    // Gold scratch coating
+    const { width, height } = canvas;
     const gradient = ctx.createLinearGradient(0, 0, width, height);
     gradient.addColorStop(0, "#f8df9b");
     gradient.addColorStop(0.45, "#d9ad5b");
     gradient.addColorStop(1, "#f4d58c");
-
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Decorative texture
-    for (let i = 0; i < 90; i++) {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
-
+    for (let i = 0; i < 90; i += 1) {
       ctx.beginPath();
-      ctx.arc(x, y, Math.random() * 1.8 + 0.4, 0, Math.PI * 2);
+      ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 1.8 + 0.4, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(255,255,255,0.35)";
       ctx.fill();
     }
@@ -44,7 +37,6 @@ function ScratchHeart({ label, value, index }) {
     ctx.textAlign = "center";
     ctx.font = "600 17px Georgia";
     ctx.fillText("SCRATCH", width / 2, height / 2 - 5);
-
     ctx.font = "12px Arial";
     ctx.fillText("TO REVEAL", width / 2, height / 2 + 17);
   }, []);
@@ -59,48 +51,42 @@ function ScratchHeart({ label, value, index }) {
     };
   };
 
-  const scratch = (event) => {
-    if (!isDrawing.current || revealed) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const { x, y } = getPosition(event);
-
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.beginPath();
-    ctx.arc(x, y, 23, 0, Math.PI * 2);
-    ctx.fill();
-
-    checkProgress();
-  };
-
   const checkProgress = () => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const pixels = ctx.getImageData(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    ).data;
+    const ctx = canvas?.getContext("2d");
+    if (!ctx) return;
 
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     let transparent = 0;
     let total = 0;
 
-    // Sample pixels to keep the check lightweight
     for (let i = 3; i < pixels.length; i += 4 * 12) {
-      total++;
-      if (pixels[i] < 50) transparent++;
+      total += 1;
+      if (pixels[i] < 50) transparent += 1;
     }
 
-    if (transparent / total > 0.38) {
+    if (total > 0 && transparent / total > 0.38) {
       setRevealed(true);
     }
   };
 
+  const scratch = (event) => {
+    if (!isDrawing.current || revealed) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!ctx) return;
+
+    const { x, y } = getPosition(event);
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(x, y, 23, 0, Math.PI * 2);
+    ctx.fill();
+    checkProgress();
+  };
+
   const handlePointerDown = (event) => {
     if (revealed) return;
-
     isDrawing.current = true;
     event.currentTarget.setPointerCapture(event.pointerId);
     scratch(event);
@@ -114,10 +100,10 @@ function ScratchHeart({ label, value, index }) {
     <motion.div
       className="scratch-heart"
       style={{ clipPath: HEART_CLIP }}
-      initial={{ opacity: 0, y: 35, scale: 0.9 }}
+      initial={{ opacity: 0, y: 28, scale: 0.92 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
+      transition={{ duration: 0.7, delay: index * 0.14 }}
     >
       <div className="scratch-heart__revealed">
         <span className="scratch-heart__label">{label}</span>
@@ -128,9 +114,7 @@ function ScratchHeart({ label, value, index }) {
         ref={canvasRef}
         width={320}
         height={280}
-        className={`scratch-heart__canvas ${
-          revealed ? "scratch-heart__canvas--removed" : ""
-        }`}
+        className={`scratch-heart__canvas ${revealed ? "scratch-heart__canvas--removed" : ""}`}
         onPointerDown={handlePointerDown}
         onPointerMove={scratch}
         onPointerUp={handlePointerUp}
@@ -142,10 +126,7 @@ function ScratchHeart({ label, value, index }) {
 }
 
 export default function WeddingDate() {
-  const [year, month, day] = invitationData.wedding.date
-    .split("-")
-    .map(Number);
-
+  const [year, month, day] = invitationData.wedding.date.split("-").map(Number);
   const monthName = new Date(year, month - 1, 1)
     .toLocaleString("en-US", { month: "short" })
     .toUpperCase();
@@ -157,25 +138,20 @@ export default function WeddingDate() {
   ];
 
   return (
-    <section className="wedding-date-section">
-      <div className="wedding-date-section__ornament">✦</div>
+    <div className="wedding-date-section" aria-label="Wedding date">
+      <div className="wedding-date-section__ornament" aria-hidden="true">✦</div>
 
       <motion.div
         className="wedding-date-section__content"
-        initial={{ opacity: 0, y: 35 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="wedding-date-section__eyebrow">
-          A Date To Remember
-        </p>
+        <p className="wedding-date-section__eyebrow">A Date To Remember</p>
+        <h2 className="wedding-date-section__heading">Save The Date</h2>
 
-        <h2 className="wedding-date-section__heading">
-          Save The Date
-        </h2>
-
-        <div className="wedding-date-section__divider">
+        <div className="wedding-date-section__divider" aria-hidden="true">
           <span />
           ✧
           <span />
@@ -193,7 +169,8 @@ export default function WeddingDate() {
         </div>
 
         <p className="wedding-date-section__hint">
-          Scratch each heart to reveal the date ❤️
+          Scratch each heart to reveal the date
+          <span aria-hidden="true"> ♥</span>
         </p>
 
         <p className="wedding-date-section__message">
@@ -201,6 +178,6 @@ export default function WeddingDate() {
           and we would be honoured to have you by our side.
         </p>
       </motion.div>
-    </section>
+    </div>
   );
 }
