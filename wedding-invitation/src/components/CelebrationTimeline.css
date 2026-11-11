@@ -67,7 +67,7 @@
   min-height: 205px;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 0;
 }
 .celebration-event.event-left { flex-direction: row; }
 .celebration-event.event-right { flex-direction: row-reverse; }
