@@ -1,0 +1,169 @@
+.wedding-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  background: #e9c69c;
+}
+
+.wedding-hero__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #f3d5ad 0%, #e9c59b 58%, #b97855 100%);
+}
+
+.hero__layer {
+  position: absolute;
+  display: block;
+  inset: -2% 0;
+  width: 100%;
+  height: 104%;
+  overflow: hidden;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero__layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.wedding-hero__sky { z-index: 1; }
+.wedding-hero__sun { z-index: 2; }
+.wedding-hero__mountain { z-index: 3; }
+.wedding-hero__cloud { z-index: 4; }
+.wedding-hero__temple { z-index: 5; }
+.wedding-hero__flagpole { z-index: 6; }
+.wedding-hero__bells-frame { z-index: 7; }
+
+.wedding-hero__bell {
+  position: absolute;
+  top: 0;
+  z-index: 8;
+  width: clamp(38px, 5vw, 58px);
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.wedding-hero__bell--left { left: 12%; }
+.wedding-hero__bell--right { right: 12%; }
+
+.wedding-hero__title {
+  position: absolute;
+  z-index: 9;
+  top: 31%;
+  left: 50%;
+  display: flex;
+  width: min(92%, 900px);
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #633d2b;
+  pointer-events: none;
+}
+
+.wedding-hero__eyebrow {
+  margin: 0 0 20px;
+  font-family: "Jost", sans-serif;
+  font-size: clamp(10px, 1.2vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.wedding-hero__title h1 {
+  max-width: 100%;
+  margin: 0;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(54px, 8vw, 108px);
+  font-weight: 400;
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 18px rgba(255, 239, 211, 0.35);
+}
+
+.wedding-hero__ampersand {
+  margin: 4px 0;
+  color: #8c5037;
+  font-family: "Fraunces", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-style: italic;
+}
+
+.wedding-hero__date {
+  margin: 26px 0 0;
+  font-family: "Jost", sans-serif;
+  font-size: clamp(11px, 1.3vw, 15px);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.wedding-hero__scroll {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #633d2b;
+  pointer-events: none;
+}
+
+.wedding-hero__scroll span {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.wedding-hero__scroll i {
+  display: block;
+  width: 1px;
+  height: 38px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+@media (max-width: 767px) {
+  .wedding-hero {
+    min-height: 600px;
+  }
+
+  .wedding-hero__title {
+    top: 34%;
+    width: 94%;
+  }
+
+  .wedding-hero__title h1 {
+    font-size: clamp(49px, 12vw, 76px);
+  }
+
+  .wedding-hero__eyebrow {
+    margin-bottom: 17px;
+    letter-spacing: 0.28em;
+  }
+
+  .wedding-hero__date {
+    margin-top: 22px;
+    letter-spacing: 0.18em;
+  }
+
+  .wedding-hero__bell--left { left: 8%; }
+  .wedding-hero__bell--right { right: 8%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__layer { will-change: auto; }
+}
