@@ -1,0 +1,72 @@
+
+.hashtag-section {
+  position: relative;
+  overflow: hidden;
+  padding: 85px 20px 95px;
+  background: var(--wedding-cream);
+  text-align: center;
+}
+
+.hashtag-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hashtag-heading {
+  margin: 0 0 28px;
+  color: var(--wedding-brown);
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 500;
+}
+
+.hashtag-pill {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 12px 25px;
+  border: 1px solid var(--wedding-muted-gold);
+  border-radius: 999px;
+  background: rgba(255, 250, 237, 0.65);
+  color: var(--wedding-brown);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.hashtag-pill:hover,
+.hashtag-copied {
+  border-color: var(--wedding-brown);
+  background: var(--wedding-brown);
+  color: #fff7e8;
+}
+
+.hashtag-hint {
+  min-height: 22px;
+  margin: 17px 0 0;
+  color: #98754e;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 480px) {
+  .hashtag-section {
+    padding: 65px 18px 75px;
+  }
+
+  .hashtag-pill {
+    max-width: 100%;
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+}

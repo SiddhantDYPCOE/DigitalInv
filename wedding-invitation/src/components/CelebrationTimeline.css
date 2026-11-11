@@ -1,0 +1,305 @@
+
+.celebration-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 100px 24px 80px;
+  background: #f5e8c9;
+  color: #59351f;
+}
+
+.celebration-paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("https://inviteutsav.com/wp-content/themes/inviteutsav/assets/templates/siyaram-raghukul/images/backgrounds/timeline-paper-mobile.webp");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  opacity: 0.8;
+}
+
+.celebration-content {
+  position: relative;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.celebration-heading {
+  margin-bottom: 75px;
+  text-align: center;
+}
+
+.celebration-eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #a4773f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.celebration-heading h2 {
+  margin: 0;
+  color: #713d24;
+  font-family: "Fraunces", serif;
+  font-size: clamp(38px, 6vw, 66px);
+  font-weight: 500;
+}
+
+.celebration-heading p {
+  margin-top: 16px;
+  color: #87664a;
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.celebration-events {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+
+.celebration-event {
+  position: relative;
+  display: flex;
+  min-height: 245px;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+.celebration-event.event-left {
+  flex-direction: row;
+}
+
+.celebration-event.event-right {
+  flex-direction: row-reverse;
+}
+
+.event-card {
+  position: relative;
+  display: grid;
+  width: min(43%, 370px);
+  min-height: 220px;
+  flex-shrink: 0;
+  place-items: center;
+  padding: 35px 45px;
+  text-align: center;
+}
+
+.event-card-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.event-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.event-date {
+  color: #a4773f;
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.event-card-content h3 {
+  margin: 0;
+  color: #6e3c25;
+  font-family: "Fraunces", serif;
+  font-size: clamp(27px, 3vw, 37px);
+  font-weight: 500;
+}
+
+.event-time {
+  color: #87664a;
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.event-information {
+  display: flex;
+  width: min(38%, 330px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  color: #76553a;
+  font-family: "Jost", sans-serif;
+}
+
+.event-description {
+  margin: 0 0 5px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.event-place {
+  color: #704027;
+  font-family: "Fraunces", serif;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.event-address {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.event-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 5px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #b18a58;
+  color: #8a5b2d;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.event-directions:hover {
+  color: #4d2b1a;
+}
+
+.event-directions span {
+  font-size: 19px;
+}
+
+.event-pillar {
+  position: absolute;
+  top: 50%;
+  width: 95px;
+  max-height: 230px;
+  object-fit: contain;
+  opacity: 0.85;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.pillar-left {
+  left: -100px;
+}
+
+.pillar-right {
+  right: -100px;
+}
+
+.event-lotus {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  width: 75px;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.celebration-bottom-lotus {
+  display: block;
+  width: min(280px, 65%);
+  margin: 100px auto 0;
+}
+
+.celebration-bottom-lotus img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .celebration-section {
+    padding: 75px 20px 60px;
+  }
+
+  .celebration-heading {
+    margin-bottom: 55px;
+  }
+
+  .celebration-heading p {
+    max-width: 280px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1.7;
+  }
+
+  .celebration-events {
+    gap: 65px;
+  }
+
+  .celebration-event,
+  .celebration-event.event-left,
+  .celebration-event.event-right {
+    min-height: auto;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .event-card {
+    width: min(100%, 350px);
+    min-height: 210px;
+    padding: 35px 45px;
+  }
+
+  .event-information {
+    width: min(100%, 320px);
+    align-items: center;
+    text-align: center;
+  }
+
+  .event-description {
+    max-width: 290px;
+  }
+
+  .event-pillar {
+    width: 55px;
+    max-height: 150px;
+    opacity: 0.55;
+  }
+
+  .pillar-left {
+    top: 75px;
+    left: -18px;
+  }
+
+  .pillar-right {
+    top: 75px;
+    right: -18px;
+  }
+
+  .event-lotus {
+    bottom: -40px;
+    width: 65px;
+  }
+
+  .celebration-bottom-lotus {
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+  .celebration-section {
+    padding-right: 65px;
+    padding-left: 65px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-directions {
+    transition: none;
+  }
+}

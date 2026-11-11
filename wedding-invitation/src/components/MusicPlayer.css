@@ -1,0 +1,93 @@
+
+.music-player {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(198, 161, 108, 0.75);
+  border-radius: 50%;
+
+  background: rgba(67, 39, 25, 0.94);
+  color: var(--wedding-cream);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 16px rgba(40, 22, 12, 0.25),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.music-player:hover {
+  transform: scale(1.08);
+  background: #805332;
+  box-shadow: 0 6px 20px rgba(40, 22, 12, 0.32);
+}
+
+.music-player__bars {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.music-player__bars i {
+  display: block;
+  width: 3px;
+  height: 5px;
+  border-radius: 4px;
+  background: currentColor;
+  transform-origin: center;
+}
+
+.music-player.is-playing .music-player__bars i {
+  animation: musicBars 0.8s ease-in-out infinite alternate;
+}
+
+.music-player.is-playing .music-player__bars i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.music-player.is-playing .music-player__bars i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes musicBars {
+  from {
+    transform: scaleY(0.45);
+  }
+
+  to {
+    transform: scaleY(2.8);
+  }
+}
+
+@media (max-width: 640px) {
+  .music-player {
+    right: 16px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-player,
+  .music-player__bars i {
+    animation: none !important;
+    transition: none;
+  }
+}

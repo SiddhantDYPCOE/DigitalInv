@@ -1,0 +1,329 @@
+
+.venue-section {
+  position: relative;
+  isolation: isolate;
+  min-height: 1050px;
+  overflow: hidden;
+  padding: 100px 22px 130px;
+  background: var(--wedding-cream);
+  color: var(--wedding-brown);
+}
+
+.venue-backdrop,
+.venue-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.venue-backdrop img,
+.venue-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.venue-backdrop {
+  z-index: -2;
+}
+
+.venue-scene {
+  z-index: -1;
+  opacity: 0.95;
+}
+
+.venue-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 900px);
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.venue-intro {
+  max-width: 650px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.venue-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--wedding-gold);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.venue-intro h2 {
+  margin: 0;
+  color: var(--wedding-brown);
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 5vw, 53px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.venue-card {
+  position: relative;
+  width: min(100%, 510px);
+  padding: 42px 42px 38px;
+  border: 1px solid rgba(167, 123, 67, 0.55);
+  border-radius: 5px;
+  background: rgba(255, 248, 230, 0.88);
+  box-shadow: 0 18px 55px rgba(79, 49, 27, 0.13);
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.venue-card-decoration {
+  margin-bottom: 12px;
+  color: var(--wedding-gold);
+  font-size: 24px;
+}
+
+.venue-card-label {
+  color: var(--wedding-gold);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.venue-card h3 {
+  margin: 15px 0 8px;
+  color: var(--wedding-brown);
+  font-family: var(--font-heading);
+  font-size: clamp(27px, 4vw, 36px);
+  font-weight: 500;
+}
+
+.venue-event-names {
+  margin: 0;
+  color: var(--wedding-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.7px;
+}
+
+.venue-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--wedding-gold);
+  font-size: 13px;
+}
+
+.venue-divider span:first-child,
+.venue-divider span:last-child {
+  width: 55px;
+  height: 1px;
+  background: var(--wedding-muted-gold);
+}
+
+.venue-address {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 auto;
+  color: var(--wedding-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.venue-address svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--wedding-gold);
+}
+
+.venue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.venue-directions,
+.venue-copy {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 17px;
+  border: 1px solid var(--wedding-gold);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--wedding-brown);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.venue-directions:hover,
+.venue-copy:hover {
+  background: var(--wedding-brown);
+  border-color: var(--wedding-brown);
+  color: #fff7e8;
+}
+
+.countdown-wrapper {
+  width: min(100%, 570px);
+  margin-top: 65px;
+  padding: 28px 25px;
+  border: 1px solid rgba(167, 123, 67, 0.4);
+  border-radius: 5px;
+  background: rgba(255, 248, 230, 0.76);
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.countdown-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--wedding-gold);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.countdown-date {
+  margin: 13px 0 25px;
+  color: var(--wedding-brown);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.countdown-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-number {
+  display: grid;
+  width: 75px;
+  height: 75px;
+  place-items: center;
+  border: 1px solid rgba(167, 123, 67, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 251, 240, 0.7);
+  color: var(--wedding-brown);
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  color: var(--wedding-gold);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.countdown-message {
+  margin: 25px 0 0;
+  color: var(--wedding-text);
+  font-family: var(--font-decorative);
+  font-size: 27px;
+}
+
+@media (min-width: 1024px) {
+  .venue-section {
+    min-height: 1100px;
+    padding-top: 125px;
+  }
+
+  .venue-backdrop img,
+  .venue-scene img {
+    object-position: center center;
+  }
+
+  .venue-card {
+    padding: 48px 55px 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  .venue-section {
+    min-height: 950px;
+    padding: 75px 18px 100px;
+  }
+
+  .venue-card {
+    padding: 34px 22px 30px;
+  }
+
+  .venue-address {
+    font-size: 13px;
+  }
+
+  .countdown-wrapper {
+    margin-top: 45px;
+    padding: 25px 13px;
+  }
+
+  .countdown-title {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+  }
+
+  .countdown-grid {
+    gap: 6px;
+  }
+
+  .countdown-number {
+    width: 61px;
+    height: 61px;
+    font-size: 22px;
+  }
+
+  .countdown-label {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 360px) {
+  .countdown-number {
+    width: 53px;
+    height: 53px;
+    font-size: 19px;
+  }
+
+  .countdown-grid {
+    gap: 3px;
+  }
+}
